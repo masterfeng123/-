@@ -1,0 +1,74 @@
+#include <iostream>
+#include <conio.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+//設定主餐:
+//1號 55元 2:00 2號 60元 3:00 3號 65元 4:00 4號 70元 5:00 
+//設定配餐:
+//1號 11元 1:00 2號 22元 2:00 3號 33元 3:00
+int main(int argc, char** argv) {
+	char i,j;
+	int a=0;
+	char m; 
+	int sum=0;
+	int wait=0; 
+	// sum: 總金額, wait: 需待時間 ,i:主餐號 j:附餐號 m:是否加點餐
+	
+	while (a<1){
+		printf("---主(a~b),附(e~g):  ");
+		i=getche(); 
+		j=getche();
+		printf("\n");
+		//搜尋對應的i與j以計算價錢與時間 
+		switch (i){
+			case 'a':
+				sum+=55;
+				wait+=2;
+				break;
+			case 'b':
+				sum+=60;
+				wait+=3;
+				break;
+			case 'c':
+				sum+=65;
+				wait+=4;
+				break;
+			case 'd':
+				sum+=70;
+				wait+=5;
+				break;
+			default :
+				printf("\n---主菜無效，不列入計算---");
+		}
+		switch (j){
+			case 'e':
+				sum+=11;
+				wait+=1;
+				break;
+			case 'f':
+				sum+=22;
+				wait+=2;
+				break;
+			case 'g':
+				sum+=33;
+				wait+=3;
+				break; 
+			default :
+				printf("\n---附菜無效，不列入計算---");
+		}
+		//詢問加點，若沒有加點，將參數a變為零。將自動跳出while迴圈
+		printf("\n---是否加點Y(1)N(2):  ");
+		m=getche();
+		printf("\n"); 
+		if (m=='2'){
+			break;
+		} 
+		 
+		 
+		  
+		
+	}
+	printf("---總共需要%2d元，須等%2d分鐘",sum,wait);
+	 
+	return 0;
+}
